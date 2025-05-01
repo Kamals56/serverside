@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 import sys
 # This is mainly taken from https://discordpy.readthedocs.io/en/stable/quickstart.html
 # To make the file watch for changes (the script is restarted each time you save the file),
@@ -9,11 +12,12 @@ import sys
 # 3: To run the file: nodemon --exec python3 bottemplate.py
 
 # Your bot token here (https://discord.com/developers/applications/ and tab Bot -> Token -> Reset Token -> Copy the token here)
-discord_token = ""
+
+discord_token = os.getenv("discord_token")
 # Your bot name here
 name = "csm101_kamal_lamichhane"
 # OpenAI API key here
-openai_key = ""
+openai_key = os.getenv("OPENAI_API_KEY") 
 
 if (discord_token == ""): sys.exit("ERROR: Please set the discord token.")
 if (name == ""): sys.exit("ERROR: Please set the name of the bot.")
